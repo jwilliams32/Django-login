@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <h1>Registration Page</h1>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {% if form.errors %}
+        <p>Errors in the form!</p>
+        {% endif %}
+
+        {{ form }}
+
+        <input type="submit" value="Register">
+    </form>
+
+   <br>
+  <p><strong>-- OR --</strong></p>
+    <a href="{% url 'social:begin' backend='google-oauth2' %}">
+     <img id="signInButton" src="http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png" onclick="document.getElementById('signInButton').src='http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png'">
+    </a>
+</body>
+
+
+
+
+
+
+{% endblock %}
