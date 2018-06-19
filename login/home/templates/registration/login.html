@@ -20,14 +20,17 @@
                 {{ form }}
                 <button type="submit" value="login">Login</button>
                 <input type="hidden" name="next" value="{{ next }}">
-
               </form>
-        <br>
+      </div>
+         <div class="center">
+         <br>
         <a href="{% url 'social:begin' backend='google-oauth2' %}">
          <img id="signInButton" src="http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png" onclick="document.getElementById('signInButton').src='http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png'">
         </a>
         <br>
-      </div>
+
+         </div>
+
      </div>
     </div>
 

@@ -9,7 +9,7 @@ from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponseRedirect
 from django.db import transaction
 from .models import Profile
-from .forms import UserForm, ProfileForm
+# from .forms import UserForm, ProfileForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
@@ -45,11 +45,11 @@ def register(request):
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            # email = form.cleaned_data['email']
-            # first_name = form.cleaned_data['']
-            # last_name = form.cleaned_data['']
+            email = form.cleaned_data['email']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
 
-            user = authenticate(username=username, password=password)
+            user = authenticate(username=username, password=password, email=email, first_name=first_name,last_name=last_name)
             login(request, user)
             return redirect('/')
     else:
